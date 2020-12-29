@@ -1,3 +1,88 @@
-.done {
-  text-decoration: line-through;
+* {
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightgreen;
+}
+
+header  {
+  margin-top:100px;
+  text-align: center;
+  color:white;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+.clear {
+  text-align: right;
+}
+
+.fa-redo {
+  padding:10px 30px 0 0;
+  font-size: 30px;
+}
+
+/*-----Todoリスト-----*/
+
+.todo-container {
+  text-align:center;
+}
+
+.todo-container input{
+  padding:10px;
+  border: none;
+}
+
+#newtodo {
+  font-size: 1.5rem;
+  padding:1.5rem 2rem;
+}
+
+.fa-plus-circle {
+  font-size: 20px;
+}
+
+#list {
+  margin-top:100px !important;
+  color:black;
+  display:flex;
+  flex-direction: column;
+  width:30%;
+  margin: 0 auto;
+}
+
+#list li {
+  font-size:2rem;
+  list-style: none;
+  padding-left:10px;
+}
+
+#list button {
+  font-size: 2rem;
+  margin: 0 auto;
+  padding:1rem;
+}
+
+.trush-btn {
+  background-color: rgba(73, 204,73);
+}
+
+.complete-btn {
+  background-color: #ff6f47;
+}
+
+.todo {
+  display:flex;
+  background-color:white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo li {
+  flex:1;
 }
