@@ -1,52 +1,58 @@
-const clear = document.querySelector(".clear");
-const dateElement = document.getElementById("date");
-const list = document.getElementById("list");
-const input = document.getElementById("input");
-
-
-
-const options = {month: "short", weekday: "long", day:"numeric"};
-const today = new Date();
+/*const options = {month: "short", weekday: "long", day:"numeric"};
+const today = new Date();*/
 
 /*dateElement.innerHTML = today.toLocaleDateString( [locales][, options);*/
 
+//Selectors
+const input = document.getElementById('input')
+const addButton = document.querySelector('#addbutton');
+const addList = document.querySelector('#addlist');
 
-const button = document.getElementById('addbutton');
-button.addEventListener('click', ()=> {
-  const todo = document.createElement('div');
-  todo.classList.add('todo');
+//Event addEventListener
+addButton.addEventListener('click', addtodo);
+addList.addEventListener('click', deleteCheck);
 
-  const input = document.getElementById('newtodo');
+//Functions
+function addtodo(event) {
+  event.preventDefault();
 
-  const addrist = document.createElement('li');
-  addrist.innerText = input.value;
-  todo.appendChild(addrist);
+  //To do div
+  const todoDiv = document.createElement('div');
+  todoDiv.classList.add('todolist');
+  //Create li
+  const newTodo = document.createElement('li');
+  newTodo.innerText = input.value;
+  newTodo.classList.add('newTodo');
+  todoDiv.appendChild(newTodo);
+  //check checkbutton
+  const checkButton = document.createElement('button');
+  checkButton.innerHTML = '<i class="far fa-check-circle"></i>'
+  checkButton.classList.add('check');
+  todoDiv.appendChild(checkButton);
+  //trush trushbutton
+  const trushButton = document.createElement('button');
+  trushButton.innerHTML = '<i class="far fa-trash-alt"></i>'
+  trushButton.classList.add('trush');
+  todoDiv.appendChild(trushButton);
 
-  const completedbutton = document.createElement('button');
-  completedbutton.innerHTML = '<i class="far fa-check-circle"></i>'
-  completedbutton.classList.add('complete-btn');
-  todo.appendChild(completedbutton);
+  //Add todo List
+  addList.appendChild(todoDiv);
 
-  const trushbutton = document.createElement('button');
-  trushbutton.innerHTML = '<i class="far fa-trash-alt"></i>'
-  trushbutton.classList.add('trush-btn');
-  todo.appendChild(trushbutton);
-
-  const ul = document.getElementById('list');
-  ul.appendChild(todo);
-
-  /*-----addボタンを押したときの打った文字が消される-----*/
+  //When push button, delete input.value
   input.value = '';
-});
+};
 
-
-const deleteCheck = querySelector('trush-btn');
-deleteCheck.addEventListener('click', ()=> {
-
-});
-
-/*-----エンターキーを押した時, todoリスト追加の処理-----
-document.addEventListener('keyup', event => {
-  if(event.keycode == 13) {
+function deleteCheck(event) {
+  const item = event.target;
+  //delete todo
+  if(item.classList[0] === 'trush') {
+    const todo = item.parentElement;
+    todo.remove();
   }
-});*/
+
+  //check todo
+  if(item.classList[0] === 'check') {
+    const todo = item.parentElement;
+    todo.classList.toggle('done');
+  }
+}
