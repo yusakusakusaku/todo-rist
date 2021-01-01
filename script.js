@@ -1,14 +1,9 @@
-/*const options = {month: "short", weekday: "long", day:"numeric"};
-const today = new Date();*/
-
-/*dateElement.innerHTML = today.toLocaleDateString( [locales][, options);*/
-
 //Selectors
 const input = document.getElementById('input')
 const addButton = document.querySelector('#addbutton');
 const addList = document.querySelector('#addlist');
 
-//Event addEventListener
+//addEventListener
 addButton.addEventListener('click', addtodo);
 addList.addEventListener('click', deleteCheck);
 
@@ -24,12 +19,12 @@ function addtodo(event) {
   newTodo.innerText = input.value;
   newTodo.classList.add('newTodo');
   todoDiv.appendChild(newTodo);
-  //check checkbutton
+  //check 
   const checkButton = document.createElement('button');
   checkButton.innerHTML = '<i class="far fa-check-circle"></i>'
   checkButton.classList.add('check');
   todoDiv.appendChild(checkButton);
-  //trush trushbutton
+  //trush
   const trushButton = document.createElement('button');
   trushButton.innerHTML = '<i class="far fa-trash-alt"></i>'
   trushButton.classList.add('trush');
